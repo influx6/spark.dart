@@ -1,0 +1,16 @@
+name: spark
+version: 0.0.1
+author: Alexander Ewetumo<trinoxf@gmail.com>
+description: providing native sparkflow ui
+homepage: http://github.com/influx6/spark.dart
+dependencies:
+  browser: any
+  hub: any
+  sparkflow: any
+dependency_overrides:
+  spark_elements:
+    path: ../spark_elements
+  sparkflow:
+    path: ../sparkflow
+  hub:
+    path: ../hub

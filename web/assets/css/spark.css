@@ -1,0 +1,78 @@
+body{
+	background: #000B13;
+	width: 100%;
+  font-size:100%;
+  overflow:hidden;
+}
+
+#wrapper,.wrapper{
+	width: 100%;
+	height: 100%;
+}
+
+.sideload{
+  display: inline-block;
+  vertical-align: top;
+  margin:0px;
+}
+
+.dashboard_panel{
+  width: 17%;
+  height: 100%;
+  background: rgba(225,231,230,0.1);
+}
+
+.dashboard{
+	width: 82%;
+	height: 100%;
+	padding: 10px;
+	position: relative;
+  background: rgba(0,0,0,0.2);
+  overflow: hidden;
+}
+
+.dashboard_panel .panel_header{
+    width: 100%;
+    text-align: left;
+    padding: 5px 5px 5px 10px;
+    background: rgba(255,255,255,0.2);
+}
+
+.dashboard_panel .widget_bar{
+  width: 100%;
+  height: 7%;
+  background: rgba(31,205,211,0.4);
+  border:1px solid rgba(0,0,0,0.1);
+}
+
+.dashboard_panel .component_lists{
+  width: 100%;
+  height: 80%;
+  background: rgba(255,255,255,0.1);
+  overflow: auto;
+  padding:1px;
+}
+
+
+.dashboard_panel .component_lists .superlist{
+  display: block;
+  cursor: pointer;
+}
+
+.dashboard_panel .component_lists .superlist li{
+  background: rgba(10,10,10,0.2);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+  
+.dashboard_panel .component_lists .superlist li h3{
+  padding: 10px;
+}
+
+.dashboard_panel .component_lists .superlist li ul{
+  display: none;
+  margin: 0;
+}
+
+.dashboard_panel .component_lists .superlist li ul li{
+  padding: 5px;
+}
