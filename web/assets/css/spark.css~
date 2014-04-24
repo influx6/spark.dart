@@ -1,0 +1,177 @@
+*{
+  font-family: "Helvetica neue",Helvetica,sans,sans-serif;
+}
+
+body{
+  background: #000B13;
+  width: 100%;
+  font-size:100%;
+  overflow:hidden;
+}
+
+.boxShadow{
+  box-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+  -moz-box-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+  -webkit-box-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+  -o-box-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+}
+
+.boxShadow_inset{
+  box-shadow: 1px 1px 2px rgba(0,0,0,0.3) inset,0px 0px 3px rgba(255,255,255,0);
+}
+.shadow{
+  display:none;
+}
+
+#wrapper,.wrapper{
+  width: 100%;
+  height: 100%;
+}
+
+.sideload{
+  display: inline-block;
+  vertical-align: top;
+  margin:0px;
+}
+
+.floated{
+  z-index:2000;
+  position: absolute;
+  top:30px;
+  left: 0px;
+}
+
+.dashboard_panel{
+  position:relative;
+  width: 17%;
+  height: 100%;
+  background: rgba(225,231,230,0.1);
+  border-right: 1px solid rgba(255,255,255,0.3);
+}
+
+.dashboard{
+  width: 82.5%;
+  height: 100%;
+  padding: 10px;
+  position: relative;
+  background: rgba(100,100,100,0.2);
+  overflow: hidden;
+}
+
+.dashboard_panel .panel_header{
+    width: 100%;
+    text-align: left;
+    padding: 5px 5px 5px 10px;
+    background: rgba(255,255,255,0.2);
+}
+
+.dashboard_panel .widget_bar{
+  width: 100%;
+  height: 7%;
+  background: rgba(31,205,211,0.4);
+  border:1px solid rgba(0,0,0,0.1);
+}
+
+.dashboard_panel .component_lists{
+  width: 100%;
+  height: 80%;
+  background: rgba(255,255,255,0.1);
+  overflow: auto;
+  padding:1px;
+}
+
+
+.dashboard_panel .component_lists .superlist{
+  display: block;
+  cursor: pointer;
+}
+
+.dashboard_panel .component_lists .superlist li{
+  background: rgba(10,10,10,0.2);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+  
+.dashboard_panel .component_lists .superlist li h3{
+  padding: 10px;
+}
+
+.dashboard_panel .component_lists .superlist li ul{
+  display: none;
+  margin: 0;
+}
+
+.dashboard_panel .component_lists .superlist li ul li{
+  padding: 5px;
+}
+
+.dashboard_widgets{
+   position:absolute;
+   height: auto;
+}
+
+.cards{
+  width: 250px;
+  height:auto;
+  background: rgba(225,231,230,1);
+  background: #000B13;
+  position:absolute;
+  right:5px;
+  border: 1px solid rgba(255,255,255,0.4);
+}
+
+.widget_actions{
+  width:100%;
+  height: 30px;
+  position:relative;
+  background: rgba(255,255,255,0.2);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.widget_actions .action_list{
+  display: block;
+  width: 100%;
+  height:100%;
+  padding:1px;
+  overflow: hidden;
+}
+
+.widget_actions .action_list li{
+  display: inline-block;
+  text-align: center;
+  margin-left:10px;
+  font-size: 1.3em;
+  width:30px;
+  float:right;
+  background: rgba(255,255,255,0.2);
+}
+
+.dashboard_widgets .card .card_controls{
+ width: 100%;
+ height:auto;
+ background: rgba(20,20,20,1);
+}
+
+.dashboard_widgets .card .card_controls .card_meta{
+ width:100%;
+}
+
+.dashboard_widgets .card .card_controls .card_meta .info_unit{
+  width: 100%;
+  background: rgba(0,0,0,1);
+}
+
+.dashboard_widgets .card .card_controls .card_meta .info_unit .key,.dashboard_widgets .card .card_controls .card_meta .info_unit .value{
+ display:inline-block;
+ margin: 0px;
+ padding: 2px; 
+ height:100%;
+}
+
+.dashboard_widgets .card .card_controls .card_meta .info_unit .key{
+  width: 25%;
+  background: rgba(100,100,100,0.4);
+}
+
+.dashboard_widgets .card .card_controls .card_meta .info_unit .value{
+  width: 60%;
+}

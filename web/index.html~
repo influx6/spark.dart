@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Sparkflow UI</title>
+    <link rel="stylesheet" href="./assets/css/reset.css"/>
+    <link rel="stylesheet" href="./assets/css/grid.css"/>
+    <link rel="stylesheet" href="./assets/css/spark.css"/>
+    <meta lang='en' />
+  </head>
+<body>
+    <div id="wrapper" class="wrapper">
+  
+    <div id="dashboard" class="dashboard_panel sideload">
+      <section class="panel_header">
+        <h2>Spark UI</h2>
+      </section>
+
+
+    <div id="component_lists" class="component_lists dashboad_widgets">
+	   <section class="card">
+		<section class="widget_actions">
+		  <ul class="action_list">
+		    <li><span class="shadow">spanner</span>+</li>
+		    <li><span class="shadow">spanner</span>-</li>
+		  </ul>
+		</section>
+ 		<div class="clear"></div>
+            <section class="component_rootlists">
+        <ul class="superlist">
+
+          <li>
+            <h3>Transformers</h3>
+            <section class="sublist">
+              <ul>
+                <li><h3>StringPrefixer</h3></li>
+                <li><h3>StringPrefixer</h3></li>
+                <li><h3>StringPrefixer</h3></li>
+              </ul>
+            </section>
+          </li>
+
+          <li>
+            <h3>Groupers</h3>
+            <section class="sublist">
+              <ul>
+                <li><h3>Groups</h3></li>
+                <li><h3>Groups</h3></li>
+                <li><h3>Groups</h3></li>
+              </ul>
+            </section>
+          </li>
+
+        </ul>
+      </section>
+     </section>
+    </div> 	
+      
+    </div>
+
+
+
+    <div class="dashboard sideload">
+
+	<div id="component_reader" class="dashboard_widgets cards boxShadow">
+	   <section class="card">
+		<section class="widget_actions">
+		  <ul class="action_list">
+		    <li><span class="shadow">spanner</span>+</li>
+		    <li><span class="shadow">spanner</span>-</li>
+		  </ul>
+		</section>
+ 		<div class="clear"></div>
+		<section class="card_controls boxShadow_inset">
+	           <article class="card_meta">
+		 	<article class="info_unit">
+			  <label class="key">{{key}}</label>
+			  <span class="value">{{value}}</label>			
+ 			</article>
+		   </article>
+		   <article class="card_port"></article>
+                </section>
+	   </section>
+    	</div> 	
+
+    </div>
+
+    </div>
+</body>
+<script type="application/dart" src="spark.dart"></script>
+<script src="packages/browser/dart.js"></script>
+</html>
