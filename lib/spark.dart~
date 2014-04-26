@@ -70,21 +70,21 @@ class DOMCards extends Element{
       this.port('events:sub').send('drop');
       this.port('events:sub').send('invalid');
 
-      this.port('events:sub').send('mouseover');
-      this.port('events:sub').send('mousemove');
-      this.port('events:sub').send('mouseout');
-      this.port('events:sub').send('mousedown');
-      this.port('events:sub').send('mouseup');
-      this.port('events:sub').send('mouseleave');
-      this.port('events:sub').send('mousewheel');
-      this.port('events:sub').send('mouseenter');
+      /*this.port('events:sub').send('mouseover');*/
+      /*this.port('events:sub').send('mousemove');*/
+      /*this.port('events:sub').send('mouseout');*/
+      /*this.port('events:sub').send('mousedown');*/
+      /*this.port('events:sub').send('mouseup');*/
+      /*this.port('events:sub').send('mouseleave');*/
+      /*this.port('events:sub').send('mousewheel');*/
+      /*this.port('events:sub').send('mouseenter');*/
       this.port('events:sub').send('dragover');
       this.port('events:sub').send('dragend');
       this.port('events:sub').send('dragstart');
       this.port('events:sub').send('dragenter');
       this.port('events:sub').send('dragleave');
-      this.port('events:sub').send('fullscreenchange');
-      this.port('events:sub').send('fullscreenerror');
+      /*this.port('events:sub').send('fullscreenchange');*/
+      /*this.port('events:sub').send('fullscreenerror');*/
       this.port('events:sub').send('keydown');
       this.port('events:sub').send('keyup');
       this.port('events:sub').send('keypress');
