@@ -13,6 +13,7 @@ void main(){
    var list = SparkRegistry.generate('spark/domcards');
    var filter = SparkRegistry.generate('spark/eventfilter');
    var query = SparkRegistry.generate('elements/querySelector');
+   var reactor = SparkRegistry.generate('elements/eventreactor');
   
    list.port('out:elem').tap(Funcs.compose(print,(e){ return "listElem:$e"; }));
    list.port('events:events').tap(Funcs.compose(print,(e){ 
@@ -41,4 +42,9 @@ void main(){
    /*});*/
 
      filter.port('state:invert').send(true);
+
+     list.port('events:sub').send('drag');
+     list.port('events:sub').send('mouseleave');
+     list.port('events:sub').send('click');
+
 }

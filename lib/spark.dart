@@ -12,6 +12,7 @@ class Spark{
       SparkRegistry.register('spark','domcards',DOMCards.create);
       SparkRegistry.register('spark','eventfilter',EventFilter.create);
       SparkRegistry.register('spark','eventreactor',EventReactor.create);
+      SparkRegistry.register('spark','filteredeventreactor',FilteredEventReactor.create);
   }
 
   static isEvent(n) => n is html.Event;
@@ -51,55 +52,55 @@ class DOMCards extends Element{
       
       this.port('events:sub').resume();
       this.port('events:unsub').resume();
-
-      this.port('events:sub').send('error');
-      this.port('events:sub').send('focus');
-      this.port('events:sub').send('drag');
-      this.port('events:sub').send('click');
-      this.port('events:sub').send('select');
-      this.port('events:sub').send('search');
-      this.port('events:sub').send('load');
-      this.port('events:sub').send('scroll');
-      this.port('events:sub').send('select');
-      this.port('events:sub').send('copy');
-      this.port('events:sub').send('paste');
-      this.port('events:sub').send('submit');
-      this.port('events:sub').send('cancel');
-      this.port('events:sub').send('blur');
-      this.port('events:sub').send('abort');
-      this.port('events:sub').send('drop');
-      this.port('events:sub').send('invalid');
-
-      this.port('events:sub').send('mouseover');
-      this.port('events:sub').send('mousemove');
-      this.port('events:sub').send('mouseout');
-      this.port('events:sub').send('mousedown');
-      this.port('events:sub').send('mouseup');
-      this.port('events:sub').send('mouseleave');
-      this.port('events:sub').send('mousewheel');
-      this.port('events:sub').send('mouseenter');
-      this.port('events:sub').send('dragover');
-      this.port('events:sub').send('dragend');
-      this.port('events:sub').send('dragstart');
-      this.port('events:sub').send('dragenter');
-      this.port('events:sub').send('dragleave');
-      this.port('events:sub').send('fullscreenchange');
-      this.port('events:sub').send('fullscreenerror');
-      this.port('events:sub').send('keydown');
-      this.port('events:sub').send('keyup');
-      this.port('events:sub').send('keypress');
-      this.port('events:sub').send('selectstart');
-      this.port('events:sub').send('touchcancel');
-      this.port('events:sub').send('touchleave');
-      this.port('events:sub').send('touchenter');
-      this.port('events:sub').send('touchstart');
-      this.port('events:sub').send('touchmove');
-      this.port('events:sub').send('transitionevent');
-
-      this.port('events:sub').send('beforecut');
-      this.port('events:sub').send('beforecopy');
-      this.port('events:sub').send('beforepaste');
-      this.port('events:sub').send('contextmenu');
+/**/
+/*      this.port('events:sub').send('error');*/
+/*      this.port('events:sub').send('focus');*/
+/*      this.port('events:sub').send('drag');*/
+/*      this.port('events:sub').send('click');*/
+/*      this.port('events:sub').send('select');*/
+/*      this.port('events:sub').send('search');*/
+/*      this.port('events:sub').send('load');*/
+/*      this.port('events:sub').send('scroll');*/
+/*      this.port('events:sub').send('select');*/
+/*      this.port('events:sub').send('copy');*/
+/*      this.port('events:sub').send('paste');*/
+/*      this.port('events:sub').send('submit');*/
+/*      this.port('events:sub').send('cancel');*/
+/*      this.port('events:sub').send('blur');*/
+/*      this.port('events:sub').send('abort');*/
+/*      this.port('events:sub').send('drop');*/
+/*      this.port('events:sub').send('invalid');*/
+/**/
+/*      this.port('events:sub').send('mouseover');*/
+/*      this.port('events:sub').send('mousemove');*/
+/*      this.port('events:sub').send('mouseout');*/
+/*      this.port('events:sub').send('mousedown');*/
+/*      this.port('events:sub').send('mouseup');*/
+/*      this.port('events:sub').send('mouseleave');*/
+/*      this.port('events:sub').send('mousewheel');*/
+/*      this.port('events:sub').send('mouseenter');*/
+/*      this.port('events:sub').send('dragover');*/
+/*      this.port('events:sub').send('dragend');*/
+/*      this.port('events:sub').send('dragstart');*/
+/*      this.port('events:sub').send('dragenter');*/
+/*      this.port('events:sub').send('dragleave');*/
+/*      this.port('events:sub').send('fullscreenchange');*/
+/*      this.port('events:sub').send('fullscreenerror');*/
+/*      this.port('events:sub').send('keydown');*/
+/*      this.port('events:sub').send('keyup');*/
+/*      this.port('events:sub').send('keypress');*/
+/*      this.port('events:sub').send('selectstart');*/
+/*      this.port('events:sub').send('touchcancel');*/
+/*      this.port('events:sub').send('touchleave');*/
+/*      this.port('events:sub').send('touchenter');*/
+/*      this.port('events:sub').send('touchstart');*/
+/*      this.port('events:sub').send('touchmove');*/
+/*      this.port('events:sub').send('transitionevent');*/
+/**/
+/*      this.port('events:sub').send('beforecut');*/
+/*      this.port('events:sub').send('beforecopy');*/
+/*      this.port('events:sub').send('beforepaste');*/
+/*      this.port('events:sub').send('contextmenu');*/
       
     });
 
@@ -237,18 +238,29 @@ class EventReactor extends Component{
   static create() => new EventReactor();
 
   EventReactor(){
-    
+      
+      Function runner;
+
       this.enableSubnet();
       this.createSpace('evin');
 
       this.makeInport('evin:events',meta:{'desc':"stream of events"});
-      this.makeInport('evin:type',meta:{"desc":"type/types of events to allow"});
-      this.makeInport('evin:condfn',meta:{"desc":"a function to apply for "});
+      this.makeInport('evin:fn',meta:{"desc":"a function to apply all events with "});
       
-      this.port('static:option').bindPort(this.port('evin:type'));
+      this.port('static:option').bindPort(this.port('evin:fn'));
+  
+      this.port('evin:events').forceCondition(Spark.isEvent);
+      this.port('evin:fn').forceCondition(Valids.isFunction);
 
+      this.port('evin:events').pause();
+
+      this.port('evin:fn').tap((n){
+         runner = n.data;
+         this.port('evin:events').resume();
+      });
       
 
   }
 
 }
+

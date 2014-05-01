@@ -7,3 +7,10 @@ dependencies:
   browser: any
   hub: any
   sparkflow: any
+dependency_overrides:
+  spark_elements:
+    path: ../spark_elements
+  sparkflow:
+    path: ../sparkflow
+  hub:
+    path: ../hub
